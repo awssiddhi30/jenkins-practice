@@ -45,7 +45,7 @@ pipeline{
                 echo "Password: ${params.PASSWORD}"
             }
         }
-      }
+     } 
       post {
         always{
             echo "This sections runs always"
