@@ -1,0 +1,59 @@
+pipeline{
+
+     agent {
+        label 'AGENT-1'
+     }
+     options {
+        timeout(time:'10' , unit : 'SECONDS')
+        disableConcurrentBuilds()
+     }
+     stages {
+        stage('Build') {
+            steps {
+                sh 'echo This is Build'
+                //sh 'sleep 10'
+            }
+        }
+        stage('Test') {
+            steps {
+               sh 'echo Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+               sh 'echo Deploying...'
+               error 'pipeline failed'
+            }
+        }
+        stage('Print Params') {
+            steps {
+                echo "Hello ${params.PERSON}"
+                echo "Biography: ${params.BIOGRAPHY}"
+                echo "Toggle: ${params.TOGGLE}"
+                echo "Choice: ${params.CHOICE}"
+                echo "Password: ${params.PASSWORD}"
+            }
+        }
+      }
+      post {
+        always{
+            echo "This sections runs always"
+            deleteDir()
+        }
+        success{
+            echo "This section run when pipeline success"
+        }
+        failure{
+            echo "This section run when pipeline failure"
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
