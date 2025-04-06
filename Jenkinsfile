@@ -48,7 +48,7 @@ pipeline{
      } 
       post {
         always{
-            echo "This sections runs always"
+            echo "This section runs always"
             deleteDir()
         }
         success{
