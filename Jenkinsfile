@@ -55,7 +55,7 @@ pipeline{
                  }
              }
              steps {
-                 echo "Hello, ${PERSON}, nice to meet you."
+                 echo "Helloo, ${PERSON}, nice to meet you."
              }
          }
      } 
