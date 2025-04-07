@@ -26,14 +26,19 @@ pipeline{
             }
         }
         stage('Test') {
+            
             steps {
                sh 'echo Testing..'
             }
         }
         stage('Deploy') {
+            when {
+                branch 'production'
+            }
             steps {
                sh 'echo Deploying...'
                //error 'pipeline failed'
+
             }
         }
         stage('Print Params') {
