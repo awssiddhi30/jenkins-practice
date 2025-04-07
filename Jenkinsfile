@@ -29,6 +29,7 @@ pipeline{
             
             steps {
                sh 'echo Testing..'
+               sh 'env'
             }
         }
         stage('Deploy') {
